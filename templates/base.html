@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Tailwind CSS CDN -->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="overflow-auto w-64 bg-gray-800 min-h-screen p-4 fixed h-full">
+            <div class="text-2xl font-semibold mb-8">Mordida de Flujo</div>
+            <nav>
+                <ul>
+                    <li class="mb-4"><a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Dashboard</a></li>
+                    <li class="mb-4"><a href=" {% url 'sales_index' %} " class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Sales</a></li>
+                    <li class="mb-4"><a href=" {% url 'clients_index' %} " class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Clients</a></li>
+                    <li class="mb-4"><a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Comercio electrónico</a></li>
+                    <li class="mb-4"><a href="#" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700">Usuarios</a></li>
+
+                </ul>
+            </nav>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 p-6 ml-64">
+            {% block content %}
+                
+            {% endblock content %}
+
+            
+        </main>
+    </div>
+    <!-- Flowbite and Chart.js Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Example chart setup
+        var ctx = document.getElementById('salesChart').getContext('2d');
+        var salesChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['01 Feb', '02 Feb', '03 Feb', '04 Feb', '05 Feb', '06 Feb', '07 Feb'],
+                datasets: [{
+                    label: 'Ganancia',
+                    data: [3000, 4000, 3200, 4500, 5000, 5500, 6000],
+                    borderColor: 'rgb(255, 99, 132)',
+                    fill: false
+                }, {
+                    label: 'Ingresos (período anterior)',
+                    data: [2000, 3000, 2500, 3200, 4000, 4500, 4800],
+                    borderColor: 'rgb(54, 162, 235)',
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Fecha'
+                        }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: 'Cantidad ($)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+
+</body>
+</html>

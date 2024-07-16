@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="mb-6">
+    <h1 class="text-4xl font-semibold">$45,385</h1>
+    <p class="text-gray-400">Ventas esta semana</p>
+    <!-- Chart placeholder -->
+    <div class="mt-4">
+        <canvas id="salesChart" width="400" height="150"></canvas>
+    </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+    <div class="bg-gray-800 p-4 rounded-lg">
+        <h2 class="text-xl font-semibold">2,340</h2>
+        <p class="text-gray-400">Nuevos productos esta semana</p>
+    </div>
+    <div class="bg-gray-800 p-4 rounded-lg">
+        <h2 class="text-xl font-semibold">5,355</h2>
+        <p class="text-gray-400">Visitantes esta semana</p>
+    </div>
+    <div class="bg-gray-800 p-4 rounded-lg">
+        <h2 class="text-xl font-semibold">385</h2>
+        <p class="text-gray-400">Registros de usuarios esta semana</p>
+</div>
+</div>
+<div class="mb-6">
+    <h2 class="text-2xl font-semibold mb-4">Sesiones por país</h2>
+    <!-- World map placeholder -->
+    <div id="worldMap" class="bg-gray-800 p-4 rounded-lg h-64"></div>
+</div>
+<div class="mb-6">
+    <h2 class="text-2xl font-semibold mb-4">Últimos clientes</h2>
+    <ul>
+        <li class="flex justify-between p-4 bg-gray-800 rounded-lg mb-2">
+                <span>Neil Sims</span>
+            <span>$320</span>
+        </li>
+        <li class="flex justify-between p-4 bg-gray-800 rounded-lg mb-2">
+            <span>Bonnie Green</span>
+            <span>$3,947</span>
+        </li>
+    </ul>
+</div>
+<div>
+    <h2 class="text-2xl font-semibold mb-4">Transacciones</h2>
+    <ul>
+        <li class="flex justify-between p-4 bg-gray-800 rounded-lg mb-2">
+            <span>Payment from Bonnie Green</span>
+            <span>$2100</span>
+        </li>
+        <li class="flex justify-between p-4 bg-gray-800 rounded-lg mb-2">
+            <span>Payment refund to #00910</span>
+            <span>$-5070</span>
+        </li>
+    </ul>
+</div>
+{% endblock content %}
